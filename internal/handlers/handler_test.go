@@ -7,6 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
+	"github.com/yolanda-test/go-web-service/internal/models"
 )
 
 func TestHandler_GetShortenedURL(t *testing.T) {
@@ -17,7 +18,7 @@ func TestHandler_GetShortenedURL(t *testing.T) {
 	handler.SetupRoutes(router)
 
 	t.Run("valid request", func(t *testing.T) {
-		req, _ := http.NewRequest("GET", "/shortened-url/123", nil)
+		req, _ := http.NewRequest("GET", "/example", nil)
 		w := httptest.NewRecorder()
 		router.ServeHTTP(w, req)
 
