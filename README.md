@@ -1,72 +1,66 @@
 # Go Web Service
 
-This project is a simple web service built using Go and the Gin framework. It provides a basic structure for developing a web application with a focus on modularity and testing.
+本项目是一个使用 Go 和 Gin 框架构建的简单 Web 服务，注重模块化和测试。
 
-## Project Structure
+## 项目结构
 
 ```
 go-web-service
 ├── cmd
 │   └── server
-│       └── main.go          # Entry point of the web service
+│       └── main.go          # 服务入口
 ├── internal
 │   ├── handlers
-│   │   ├── handler.go       # Handler functions for the web service
-│   │   └── handler_test.go   # Unit tests for the handlers
+│   │   ├── handler.go       # 路由处理函数（目前仅 /example 路由）
+│   │   └── handler_test.go  # 路由处理单元测试
 │   ├── models
-│   │   ├── store.go         # Data storage layer
-│   │   └── store_test.go     # Unit tests for the data store
+│   │   ├── store.go         # 内存存储实现
+│   │   └── store_test.go    # 存储层单元测试
 │   └── integration
-│       └── integration_test.go # Integration tests for component interactions
+│       └── integration_test.go # 集成测试
 ├── pkg
-│   └── utils.go             # Utility functions for the application
-├── .github
-│   └── workflows
-│       └── ci.yml           # Continuous integration workflow
-├── go.mod                   # Module definition
-├── go.sum                   # Module checksums
-└── README.md                # Project documentation
+│   └── utils.go             # 工具函数
+├── go.mod                   # Go module 定义
+├── go.sum                   # 依赖校验
+└── README.md                # 项目说明
 ```
 
-## Getting Started
+## 快速开始
 
-### Prerequisites
+### 环境要求
 
-- Go 1.16 or later
+- Go 1.18 或更高
 - Git
 
-### Installation
+### 安装依赖
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/your-username/go-web-service.git
-   cd go-web-service
-   ```
-
-2. Install dependencies:
-   ```
-   go mod tidy
-   ```
-
-### Running the Service
-
-To run the web service, execute the following command:
+```sh
+go mod tidy
 ```
+
+### 启动服务
+
+```sh
 go run cmd/server/main.go
 ```
-The server will start on `http://localhost:8080`.
+服务默认监听 `http://localhost:8080`。
 
-### Running Tests
+### 路由说明
 
-To run the unit tests and integration tests, use the following command:
-```
+- `GET /example`  
+  返回：`{"message": "Hello, World!"}`
+
+### 运行测试
+
+```sh
 go test ./...
 ```
+包括单元测试和集成测试。
 
-### Contributing
+## 贡献
 
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+欢迎贡献代码！请通过 issue 或 pull request 提交建议或修复。
 
-### License
+## 许可证
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+MIT License，详见 LICENSE 文件。
